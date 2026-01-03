@@ -51,7 +51,7 @@ const App: React.FC = () => {
   // 4. Filter Data based on Search AND Selected Rooms
   const filteredData = useMemo(() => {
     const query = searchQuery.toLowerCase();
-    
+
     // Apply Room Filter first
     let data = cleanData;
     if (selectedRooms.length > 0) {
@@ -87,27 +87,27 @@ const App: React.FC = () => {
       {/* Navbar (Simplified) */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <span className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <span className="bg-[#23a440] text-white p-1 rounded">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                </span>
-                Timetable Viewer
+          <span className="text-xl font-bold text-gray-900 flex items-center gap-2">
+            <span className="bg-[#23a440] text-white p-1 rounded">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
             </span>
-            <div className="text-sm text-gray-500">2026 Session</div>
+            Chreso TimeTable Viewer
+          </span>
+          <div className="text-sm text-gray-500">2026 Session</div>
         </div>
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Top Info Cards */}
-        <DashboardStats 
-          totalClasses={stats.totalClasses} 
-          activeRooms={stats.activeRooms} 
+        <DashboardStats
+          totalClasses={stats.totalClasses}
+          activeRooms={stats.activeRooms}
         />
 
         {/* Day Filters */}
-        <DaySelector 
-          activeDayIndex={activeDayIndex} 
-          onSelectDay={setActiveDayIndex} 
+        <DaySelector
+          activeDayIndex={activeDayIndex}
+          onSelectDay={setActiveDayIndex}
         />
 
         {/* Search & Filter Bar */}
@@ -126,28 +126,28 @@ const App: React.FC = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          
+
           <div className="sm:w-auto">
-             <RoomFilter 
-               rooms={allRooms} 
-               selectedRooms={selectedRooms} 
-               onChange={setSelectedRooms} 
-             />
+            <RoomFilter
+              rooms={allRooms}
+              selectedRooms={selectedRooms}
+              onChange={setSelectedRooms}
+            />
           </div>
         </div>
 
         {/* Main Schedule Grid */}
-        <DailyScheduleTable 
-          data={filteredData} 
-          dayIndex={activeDayIndex} 
+        <DailyScheduleTable
+          data={filteredData}
+          dayIndex={activeDayIndex}
           onRoomClick={handleRoomClick}
         />
 
         {/* Room Details Modal */}
-        <RoomDetailsModal 
-          isOpen={!!selectedRoomData} 
-          onClose={handleCloseModal} 
-          data={selectedRoomData} 
+        <RoomDetailsModal
+          isOpen={!!selectedRoomData}
+          onClose={handleCloseModal}
+          data={selectedRoomData}
         />
 
       </main>

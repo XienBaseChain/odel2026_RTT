@@ -22,8 +22,18 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({ totalClasses, ac
           </p>
         </div>
         <div className="flex justify-end">
-          <button className="text-sm text-[#23a440] font-medium hover:text-[#1a7a30] transition-colors">
-          </button>
+          <a
+            href="https://chresouniversity.edu.zm/wp-content/uploads/2026/01/2026-ODL-RESIDENTIAL-TIME-TABLE.xlsx"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#23a440] text-white font-semibold rounded-full shadow-md hover:bg-[#1e8f38] hover:shadow-lg transition-all duration-200 text-sm"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download
+          </a>
         </div>
       </div>
 
